@@ -1,0 +1,65 @@
+Reflexive: p is connected to p
+Symmetric: p is connected to q, then q is connected to p
+Transitive:
+
+Maximal set of objects that are mutually connected.
+
+Union Find:
+==========
+0 to N-1
+
+0 1 2 3 4 5 6 7 8 9
+(2, 5)
+0 1 2 3 4 2 6 7 8 9
+
+
+Quick Find:
+==========
+Connected if int[p] == int[q]
+
+0 1 2 3 4 5 6 7 8 9
+2, 3
+0 1 2 2 4 5 6 7 8 9
+
+2N + 2 ---> Array access
+
+Takes N sq access to process sequence of N union commands on N objects
+Quadratic (N sq)
+
+Quick Union: (lazy approach)
+===========
+
+
+Quick Union Improvement:
+=======================
+
+Discrete Fourier transform:
+Brute for N(2) steps
+
+FFT algorithm - N log N steps
+N wave signals
+Barnes Hut algorithm: N log N
+
+Knuth:
+
+Observe
+Hypothesize
+Predict
+Verify
+Validate
+
+Principles:
+Reproducible
+Falsifiable
+
+
+log 10 = 1
+log 100 = 2
+log 1000 = 3
+
+1. Model the problem
+2. Find an algorithms
+3. Fast enough?
+4. If not figure oyt why?
+5. Fix it
+6. Iterate

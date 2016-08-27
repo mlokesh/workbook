@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function myNewFunction() {
+            document.getElementById("demoa").innerHTML="My First Java Script Function"
+        }
+    </script>
+</head>
+<body>
+
+
+
+<p id="demoa">A Paragraph</p>
+
+<button type="button" onclick="myNewFunction()">Try it!</button>
+
+<p id="demo">
+    JavaScript can change the style of an HTML element.
+</p>
+<script>
+    function changeColor()
+    {
+        x=document.getElementById("demo")
+        x.style.color="#ff0000"; // change the style
+    }
+
+</script>
+
+<button type="button" onclick="changeColor()">Click Me!</button>
+
+<p>Please input a number</p>
+
+<input id="demo1" type="text">
+
+<script>
+    var x=document.getElementById("demo1").value;
+    function myFunction() {
+        if(x==""||isNaN(x))
+        {
+            alert("Not Numeric");
+        }
+    }
+</script>
+
+<button type="button" onclick="myFunction()">Click Me!</button>
+
+<script>
+   // alert("My First Java Script...")
+</script>
+
+<script>
+    document.write("<h1>This is a heading</h1>")
+</script>
+
+</body>
+</html>

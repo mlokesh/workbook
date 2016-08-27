@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calling external script</title>
+</head>
+<body>
+<p id="name01">Load external script</p>
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p><strong>Note:</strong> myFunction is stored in an external file called "myScript.js".</p>
+
+
+<script src="myScript_01.js"></script>
+
+<p id="demo">Demo Statement</p>
+
+<script>
+    document.getElementById("demo").innerHTML="My First JavaScript";
+</script>
+
+<script>
+    document.write("<h1>My first header</h1>")
+</script>
+
+<script>
+    var person="Lokesh";
+    document.write("Hello \
+    World");
+</script>
+</body>
+</html>

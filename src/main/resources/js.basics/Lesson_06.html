@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<form>
+    Buttons:
+    <input type="button" id="firstbtn" value="OK">
+    <input type="button" id="secondbtn" value="OK" onclick="alert('Oops')">
+</form>
+
+<p>Click the button below to disable the first button above.</p>
+
+<button onclick="disableElement()">Disable button</button>
+
+<script>
+    function disableElement() {
+        document.getElementById("firstbtn").disabled="true";
+    }
+</script>
+
+<form>
+    Check Box: <input type="checkbox" id="checkbox1">
+    Radio: <input type="radio" id="radio1">
+</form>
+</body>
+</html>

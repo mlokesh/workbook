@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<h1>Dap Environments</h1>
+<script>
+
+    var admin_relative_url = "/dapadmin";
+    var dashboad_relative_url = "/dap";
+    var bigscreen_relative_url = "/bigscreen";
+    var network_budget_tool_relative_url = "/networktool/wicket";
+    var bulk_account_relative_url = "/dapadmin/wicket//bulkaccounts.jsf";
+    var bulk_package_relative_url = "/dapadmin/wicket//bulkpackages.jsf";
+    var network_prioritization_relative_url = "/dapadmin/wicket/networkcampaignprioritization";
+    var dealer_branding_relative_url = "/dapadmin/wicket/dealerBranding";
+    var step_stats_relative_url = "/dap/stepStats.jsf";
+    var channel_queue_relative_url = "/dapadmin/dashboard/queues/channelqueue.html";
+    var dealer_groups_relative_url = "/dapadmin/wicket/dealersandgroups";
+    var package_creation_relative_url = "/dapadmin/wicket/packagecreation";
+    var dot_net_relative_url = "/dealers/SemQuery.aspx";
+
+    var prod_dotnet_server = "dap.cobaltgroup.com";
+    var prod_admin_server = "dap2.cobaltgroup.com";
+    var prod_dotnet_node_one = "tuksemapp01.tuk.cobaltgroup.com";
+    var prod_dotnet_node_two = "tuksemapp02.tuk.cobaltgroup.com";
+    var prod_admin_node_one = "cobpsem003.tuk.cobaltgroup.com";
+    var prod_admin_node_two = "cobpsem004.tuk.cobaltgroup.com";
+
+    var qa1_dotnet_server = "dap.qa-1.cobalt.com";
+    var qa1_admin_server = "dap2.qa-1.cobalt.com";
+    var qa1_dotnet_node_one = "cobnsem001-qa1.dswh.ds.adp.com";
+    var qa1_dotnet_node_two = "cobnsem002-qa1.dswh.ds.adp.com";
+    var qa1_admin_node_one = "cobnsem003.qa-1.dsapp.dc2.dsghost.net";
+    var qa1_admin_node_two = "cobnsem004.qa-1.dsapp.dc2.dsghost.net";
+
+    var qa2_dotnet_server = "dap.qa-2.cobalt.com";
+    var qa2_admin_server = "dap2.qa-2.cobalt.com";
+    var qa2_dotnet_node_one = "cobnsem001-qa2.dswh.ds.adp.com";
+    var qa2_dotnet_node_two = "cobnsem002-qa2.dswh.ds.adp.com";
+    var qa2_admin_node_one = "cobnsem003.qa-2.dsapp.dc2.dsghost.net";
+    var qa2_admin_node_two = "cobnsem004.qa-2.dsapp.dc2.dsghost.net";
+
+    var dev2_dotnet_server = "dap.dev-2.cobalt.com";
+    var dev2_admin_server = "dap2.dev-2.cobalt.com";
+    var dev2_dotnet_node_one = "cobnsem003-dev2.dswh.ds.adp.com";
+    var dev2_dotnet_node_two = "cobnsem003-dev2.dswh.ds.adp.com";
+    var dev2_admin_node_one = "cobnsem001.dev-2.dsapp.dc2.dsghost.net";
+    var dev2_admin_node_two = "cobnsem002.dev-2.dsapp.dc2.dsghost.net";
+
+    var http_tag = "http://";
+    var https_tag = "https://";
+    var dotnet_port = "80";
+    var admin_port = "9080";
+    var dashboard_port = "8080";
+    var bigscreen_port = "10080";
+    var network_budget_tool_port = "12080";
+
+    window.onDOMContentLoaded = function() {
+        var qa1_dotnet_url = document.getElementById("qa1_dotnet_url");
+        qa1_dotnet_url.href = https_tag + qa1_dotnet_server + dot_net_relative_url;
+    }
+
+    var qa1_admin_url = document.getElementById("qa1_admin_url");
+    qa1_admin_url.href = https_tag + qa1_admin_server + admin_relative_url;
+
+    var qa1_dashboard_url = document.getElementById("qa1_dashboard_url");
+    qa1_dashboard_url.href = http_tag + qa1_admin_server + dashboad_relative_url;
+
+    var qa1_bigscreen_url = document.getElementById("qa1_bigscreen_url");
+    qa1_bigscreen_url.href = http_tag + qa1_admin_server + bigscreen_relative_url;
+
+    var qa1_network_budget_tool_url = document.getElementById("qa1_network_budget_tool_url");
+    qa1_network_budget_tool_url.href = http_tag + qa1_admin_server + network_budget_tool_relative_url;
+
+    // QA-2: Load balanced Url's
+    var qa2_dotnet_url = document.getElementById("qa2_dotnet_url");
+    qa2_dotnet_url.href = http_tag + qa2_dotnet_server + dot_net_relative_url;
+
+    var qa2_admin_url = document.getElementById("qa2_admin_url");
+    qa2_admin_url.href = http_tag + qa2_admin_server + admin_relative_url;
+
+    var qa2_dashboard_url = document.getElementById("qa2_dashboard_url");
+    qa2_dashboard_url.href = http_tag + qa2_admin_server + dashboad_relative_url;
+
+    var qa2_bigscreen_url = document.getElementById("qa2_bigscreen_url");
+    qa2_bigscreen_url.href = http_tag + qa2_admin_server + bigscreen_relative_url;
+
+    var qa1_network_budget_tool_url = document.getElementById("qa1_network_budget_tool_url");
+    qa1_network_budget_tool_url.href = http_tag + qa2_admin_server + network_budget_tool_relative_url;
+
+    // DEV-2: Load balanced Url's
+    var dev2_dotnet_url = document.getElementById("dev2_dotnet_url");
+    dev2_dotnet_url.href = http_tag + dev2_dotnet_server + dot_net_relative_url;
+
+    var dev2_admin_url = document.getElementById("dev2_admin_url");
+    dev2_admin_url.href = http_tag + dev2_admin_server + admin_relative_url;
+
+    var dev2_dashboard_url = document.getElementById("dev2_dashboard_url");
+    dev2_dashboard_url.href = http_tag + dev2_admin_server + dashboad_relative_url;
+
+    var dev2_bigscreen_url = document.getElementById("dev2_bigscreen_url");
+    dev2_bigscreen_url.href = http_tag + dev2_admin_server + bigscreen_relative_url;
+
+    var dev2_network_budget_tool_url = document.getElementById("dev2_network_budget_tool_url");
+    dev2_network_budget_tool_url.href = http_tag + dev2_admin_server + network_budget_tool_relative_url;
+
+    // QA-1: Other Url's
+    var qa1_bulk_acount = document.getElementById("qa1_bulk_acount");
+    qa1_bulk_acount.href = http_tag + qa1_admin_server + bulk_account_relative_url;
+
+    var qa1_bulk_package = document.getElementById("qa1_bulk_package");
+    qa1_bulk_package.href = http_tag + qa1_admin_server + bulk_package_relative_url;
+
+    var qa1_network_prioritization = document.getElementById("qa1_network_prioritization");
+    qa1_network_prioritization.href = http_tag + qa1_admin_server + network_prioritization_relative_url;
+
+    var qa1_dealer_branding = document.getElementById("qa1_dealer_branding");
+    qa1_dealer_branding.href = http_tag + qa1_admin_server + dealer_branding_relative_url;
+
+    var qa1_channel_queue = document.getElementById("qa1_channel_queue");
+    qa1_channel_queue.href = http_tag + qa1_admin_server + channel_queue_relative_url;
+
+    var qa1_dealer_groups = document.getElementById("qa1_dealer_groups");
+    qa1_dealer_groups.href = http_tag + qa1_admin_server + dealer_groups_relative_url;
+
+    var qa1_package_creation = document.getElementById("qa1_package_creation");
+    qa1_package_creation.href = http_tag + qa1_admin_server + package_creation_relative_url;
+
+    var qa1_step_stats = document.getElementById("qa1_step_stats");
+    qa1_step_stats.href = http_tag + qa1_admin_server + step_stats_relative_url;
+
+    // QA-2: Other Url's
+    var qa2_bulk_acount = document.getElementById("qa2_bulk_acount");
+    qa2_bulk_acount.href = http_tag + qa2_admin_server + bulk_account_relative_url;
+
+    var qa2_bulk_package = document.getElementById("qa2_bulk_package");
+    qa2_bulk_package.href = http_tag + qa2_admin_server + bulk_package_relative_url;
+
+    var qa2_network_prioritization = document.getElementById("qa2_network_prioritization");
+    qa2_network_prioritization.href = http_tag + qa2_admin_server + network_prioritization_relative_url;
+
+    var qa2_dealer_branding = document.getElementById("qa2_dealer_branding");
+    qa2_dealer_branding.href = http_tag + qa2_admin_server + dealer_branding_relative_url;
+
+    var qa2_channel_queue = document.getElementById("qa2_channel_queue");
+    qa2_channel_queue.href = http_tag + qa2_admin_server + channel_queue_relative_url;
+
+    var qa2_dealer_groups = document.getElementById("qa2_dealer_groups");
+    qa2_dealer_groups.href = http_tag + qa2_admin_server + dealer_groups_relative_url;
+
+    var qa2_package_creation = document.getElementById("qa2_package_creation");
+    qa2_package_creation.href = http_tag + qa2_admin_server + package_creation_relative_url;
+
+    var qa2_step_stats = document.getElementById("qa2_step_stats");
+    qa2_step_stats.href = http_tag + qa2_admin_server + step_stats_relative_url;
+
+    // DEV-2: Other Url's
+    var dev2_bulk_acount = document.getElementById("dev2_bulk_acount");
+    dev2_bulk_acount.href = http_tag + dev2_admin_server + bulk_account_relative_url;
+
+    var dev2_bulk_package = document.getElementById("dev2_bulk_package");
+    dev2_bulk_package.href = http_tag + dev2_admin_server + bulk_package_relative_url;
+
+    var dev2_network_prioritization = document.getElementById("dev2_network_prioritization");
+    dev2_network_prioritization.href = http_tag + dev2_admin_server + network_prioritization_relative_url;
+
+    var dev2_dealer_branding = document.getElementById("dev2_dealer_branding");
+    dev2_dealer_branding.href = http_tag + dev2_admin_server + dealer_branding_relative_url;
+
+    var dev2_channel_queue = document.getElementById("dev2_channel_queue");
+    dev2_channel_queue.href = http_tag + dev2_admin_server + channel_queue_relative_url;
+
+    var dev2_dealer_groups = document.getElementById("dev2_dealer_groups");
+    dev2_dealer_groups.href = http_tag + dev2_admin_server + dealer_groups_relative_url;
+
+    var dev2_package_creation = document.getElementById("dev2_package_creation");
+    dev2_package_creation.href = http_tag + dev2_admin_server + package_creation_relative_url;
+
+    var dev2_step_stats = document.getElementById("dev2_step_stats");
+    dev2_step_stats.href = http_tag + dev2_admin_server + step_stats_relative_url;
+
+    // QA-1: Individual Node Url's
+    var qa1_dotnet_node_1 = document.getElementById("qa1_dotnet_node_1");
+    qa1_dotnet_node_1.href = http_tag + qa1_dotnet_node_one + ":" + dotnet_port + dot_net_relative_url;
+
+    var qa1_dotnet_node_2 = document.getElementById("qa1_dotnet_node_2");
+    qa1_dotnet_node_2.href = http_tag + qa1_dotnet_node_two + ":" + dotnet_port + dot_net_relative_url;
+
+    var qa1_admin_node_1 = document.getElementById("qa1_admin_node_1");
+    qa1_admin_node_1.href = http_tag + qa1_admin_node_one + ":" + admin_port + admin_relative_url;
+
+    var qa1_admin_node_2 = document.getElementById("qa1_admin_node_2");
+    qa1_admin_node_2.href = http_tag + qa1_admin_node_two + ":" + admin_port + admin_relative_url;
+
+    var qa1_bigscreen_node_1 = document.getElementById("qa1_bigscreen_node_1");
+    qa1_bigscreen_node_1.href = http_tag + qa1_admin_node_one + ":" + bigscreen_port + bigscreen_relative_url;
+
+    var qa1_bigscreen_node_2 = document.getElementById("qa1_bigscreen_node_2");
+    qa1_bigscreen_node_2.href = http_tag + qa1_admin_node_two + ":" + bigscreen_port + bigscreen_relative_url;
+
+    var qa1_dashboard_node_1 = document.getElementById("qa1_dashboard_node_1");
+    qa1_dashboard_node_1.href = http_tag + qa1_admin_node_one + ":" + dashboard_port + dashboad_relative_url;
+
+    var qa1_dashboard_node_2 = document.getElementById("qa1_dashboard_node_2");
+    qa1_dashboard_node_2.href = http_tag + qa1_admin_node_two + ":" + dashboard_port + dashboad_relative_url;
+
+    var qa1_nw_budget_tool_node_1 = document.getElementById("qa1_nw_budget_tool_node_1");
+    qa1_nw_budget_tool_node_1.href = http_tag + qa1_admin_node_one + ":" + network_budget_tool_port + network_budget_tool_relative_url;
+
+    var qa1_nw_budget_tool_node_2 = document.getElementById("qa1_nw_budget_tool_node_2");
+    qa1_nw_budget_tool_node_2.href = http_tag + qa1_admin_node_two + ":" + network_budget_tool_port + network_budget_tool_relative_url;
+
+    // QA-2: Individual Node Url's
+    var qa2_dotnet_node_1 = document.getElementById("qa2_dotnet_node_1");
+    qa2_dotnet_node_1.href = http_tag + qa2_dotnet_node_one + ":" + dotnet_port + dot_net_relative_url;
+
+    var qa2_dotnet_node_2 = document.getElementById("qa2_dotnet_node_2");
+    qa2_dotnet_node_2.href = http_tag + qa2_dotnet_node_two + ":" + dotnet_port + dot_net_relative_url;
+
+    var qa2_admin_node_1 = document.getElementById("qa2_admin_node_1");
+    qa2_admin_node_1.href = http_tag + qa2_admin_node_one + ":" + admin_port + admin_relative_url;
+
+    var qa2_admin_node_2 = document.getElementById("qa2_admin_node_2");
+    qa2_admin_node_2.href = http_tag + qa2_admin_node_two + ":" + admin_port + admin_relative_url;
+
+    var qa2_bigscreen_node_1 = document.getElementById("qa2_bigscreen_node_1");
+    qa2_bigscreen_node_1.href = http_tag + qa2_admin_node_one + ":" + bigscreen_port + bigscreen_relative_url;
+
+    var qa2_bigscreen_node_2 = document.getElementById("qa2_bigscreen_node_2");
+    qa2_bigscreen_node_2.href = http_tag + qa2_admin_node_two + ":" + bigscreen_port + bigscreen_relative_url;
+
+    var qa2_dashboard_node_1 = document.getElementById("qa2_dashboard_node_1");
+    qa2_dashboard_node_1.href = http_tag + qa2_admin_node_one + ":" + dashboard_port + dashboad_relative_url;
+
+    var qa2_dashboard_node_2 = document.getElementById("qa2_dashboard_node_2");
+    qa2_dashboard_node_2.href = http_tag + qa2_admin_node_two + ":" + dashboard_port + dashboad_relative_url;
+
+    var qa2_nw_budget_tool_node_1 = document.getElementById("qa2_nw_budget_tool_node_1");
+    qa2_nw_budget_tool_node_1.href = http_tag + qa2_admin_node_one + ":" + network_budget_tool_port + network_budget_tool_relative_url;
+
+    var qa2_nw_budget_tool_node_2 = document.getElementById("qa2_nw_budget_tool_node_2");
+    qa2_nw_budget_tool_node_2.href = http_tag + qa2_admin_node_two + ":" + network_budget_tool_port + network_budget_tool_relative_url;
+
+    // DEV-2: Individual Node Url's
+    var dev2_dotnet_node_1 = document.getElementById("dev2_dotnet_node_1");
+    dev2_dotnet_node_1.href = http_tag + dev2_dotnet_node_one + ":" + dotnet_port + dot_net_relative_url;
+
+    var dev2_dotnet_node_2 = document.getElementById("dev2_dotnet_node_2");
+    dev2_dotnet_node_2.href = http_tag + dev2_dotnet_node_two + ":" + dotnet_port + dot_net_relative_url;
+
+    var dev2_admin_node_1 = document.getElementById("dev2_admin_node_1");
+    dev2_admin_node_1.href = http_tag + dev2_admin_node_one + ":" + admin_port + admin_relative_url;
+
+    var dev2_admin_node_2 = document.getElementById("dev2_admin_node_2");
+    dev2_admin_node_2.href = http_tag + dev2_admin_node_two + ":" + admin_port + admin_relative_url;
+
+    var dev2_bigscreen_node_1 = document.getElementById("dev2_bigscreen_node_1");
+    dev2_bigscreen_node_1.href = http_tag + dev2_admin_node_one + ":" + bigscreen_port + bigscreen_relative_url;
+
+    var dev2_bigscreen_node_2 = document.getElementById("dev2_bigscreen_node_2");
+    dev2_bigscreen_node_2.href = http_tag + dev2_admin_node_two + ":" + bigscreen_port + bigscreen_relative_url;
+
+    var dev2_dashboard_node_1 = document.getElementById("dev2_dashboard_node_1");
+    dev2_dashboard_node_1.href = http_tag + dev2_admin_node_one + ":" + dashboard_port + dashboad_relative_url;
+
+    var dev2_dashboard_node_2 = document.getElementById("dev2_dashboard_node_2");
+    dev2_dashboard_node_2.href = http_tag + dev2_admin_node_two + ":" + dashboard_port + dashboad_relative_url;
+
+    var dev2_nw_budget_tool_node_1 = document.getElementById("dev2_nw_budget_tool_node_1");
+    dev2_nw_budget_tool_node_1.href = http_tag + dev2_admin_node_one + ":" + network_budget_tool_port + network_budget_tool_relative_url;
+
+    var dev2_nw_budget_tool_node_2 = document.getElementById("dev2_nw_budget_tool_node_2");
+    dev2_nw_budget_tool_node_2.href = http_tag + dev2_admin_node_two + ":" + network_budget_tool_port + network_budget_tool_relative_url;
+
+    // Production: Load balanced Url's
+    var prod_dotnet_url = document.getElementById("prod_dotnet_url");
+    prod_dotnet_url.href = https_tag + prod_dotnet_server + dot_net_relative_url;
+
+    var prod_admin_url = document.getElementById("prod_admin_url");
+    prod_admin_url.href = http_tag + prod_admin_server + admin_relative_url;
+
+    var prod_dashboard_url = document.getElementById("prod_dashboard_url");
+    prod_dashboard_url.href = http_tag + prod_admin_server + dashboad_relative_url;
+
+    var prod_bigscreen_url = document.getElementById("prod_bigscreen_url");
+    prod_bigscreen_url.href = http_tag + prod_admin_server + bigscreen_relative_url;
+
+    var prod_network_budget_tool_url = document.getElementById("prod_network_budget_tool_url");
+    prod_network_budget_tool_url.href = http_tag + prod_admin_server + network_budget_tool_relative_url;
+
+    // Production: Other Url's
+    var prod_bulk_acount = document.getElementById("prod_bulk_acount");
+    prod_bulk_acount.href = http_tag + prod_admin_server + bulk_account_relative_url;
+
+    var prod_bulk_package = document.getElementById("prod_bulk_package");
+    prod_bulk_package.href = http_tag + prod_admin_server + bulk_package_relative_url;
+
+    var prod_network_prioritization = document.getElementById("prod_network_prioritization");
+    prod_network_prioritization.href = http_tag + prod_admin_server + network_prioritization_relative_url;
+
+    var prod_dealer_branding = document.getElementById("prod_dealer_branding");
+    prod_dealer_branding.href = http_tag + prod_admin_server + dealer_branding_relative_url;
+
+    var prod_channel_queue = document.getElementById("prod_channel_queue");
+    prod_channel_queue.href = http_tag + prod_admin_server + channel_queue_relative_url;
+
+    var prod_dealer_groups = document.getElementById("prod_dealer_groups");
+    prod_dealer_groups.href = http_tag + prod_admin_server + dealer_groups_relative_url;
+
+    var prod_package_creation = document.getElementById("prod_package_creation");
+    prod_package_creation.href = http_tag + prod_admin_server + package_creation_relative_url;
+
+    var prod_step_stats = document.getElementById("prod_step_stats");
+    prod_step_stats.href = http_tag + prod_admin_server + step_stats_relative_url;
+
+    // Production: Individual Node Url's
+    var prod_dotnet_node_1 = document.getElementById("prod_dotnet_node_1");
+    prod_dotnet_node_1.href = http_tag + prod_dotnet_node_one + ":" + dotnet_port + dot_net_relative_url;
+
+    var prod_dotnet_node_2 = document.getElementById("prod_dotnet_node_2");
+    prod_dotnet_node_2.href = http_tag + prod_dotnet_node_two + ":" + dotnet_port + dot_net_relative_url;
+
+    var prod_admin_node_1 = document.getElementById("prod_admin_node_1");
+    prod_admin_node_1.href = http_tag + prod_admin_node_one + ":" + admin_port + admin_relative_url;
+
+    var prod_admin_node_2 = document.getElementById("prod_admin_node_2");
+    prod_admin_node_2.href = http_tag + prod_admin_node_two + ":" + admin_port + admin_relative_url;
+
+    var prod_bigscreen_node_1 = document.getElementById("prod_bigscreen_node_1");
+    prod_bigscreen_node_1.href = http_tag + prod_admin_node_one + ":" + bigscreen_port + bigscreen_relative_url;
+
+    var prod_bigscreen_node_2 = document.getElementById("prod_bigscreen_node_2");
+    prod_bigscreen_node_2.href = http_tag + prod_admin_node_two + ":" + bigscreen_port + bigscreen_relative_url;
+
+    var prod_dashboard_node_1 = document.getElementById("prod_dashboard_node_1");
+    prod_dashboard_node_1.href = http_tag + prod_admin_node_one + ":" + dashboard_port + dashboad_relative_url;
+
+    var prod_dashboard_node_2 = document.getElementById("prod_dashboard_node_2");
+    prod_dashboard_node_2.href = http_tag + prod_admin_node_two + ":" + dashboard_port + dashboad_relative_url;
+
+    var prod_nw_budget_tool_node_1 = document.getElementById("prod_nw_budget_tool_node_1");
+    prod_nw_budget_tool_node_1.href = http_tag + prod_admin_node_one + ":" + network_budget_tool_port + network_budget_tool_relative_url;
+
+    var prod_nw_budget_tool_node_2 = document.getElementById("prod_nw_budget_tool_node_2");
+    prod_nw_budget_tool_node_2.href = http_tag + prod_admin_node_two + ":" + network_budget_tool_port + network_budget_tool_relative_url;
+
+</script>
+<style>
+    table
+    {
+        border: solid black;
+    }
+    th,td
+    {
+        vertical-align:middle;
+        horizonal-align:left;
+    }
+    th
+    {
+        background-color:forestgreen;
+        color:white;
+        text-align: left;
+    }
+    td
+    {
+        border-style:solid;
+        border-width:0px;
+    }
+    .noborder
+    {
+        border:none;
+    }
+    .topborder
+    {
+        border-top: solid;
+        border-bottom: none;
+        border-right: none;
+        border-left: none;
+    }
+    hr
+    {
+        border: solid black;
+    }
+</style>
+<hr>
+<h2><font color="red">Production Url's</font></h2>
+<h3>Load Balanced Url's</h3>
+<table>
+    <tr>
+        <th style="width: 500px">Environment</th>
+        <th style="width: 800px">URL</th>
+    </tr>
+    <tr>
+        <td class="noborder">Production</td>
+        <td class="noborder"><a href="#" id="qa1_admin_url">Dot Net UI</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/dapadmin" target="_blank">Dap Admin</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/dap" target="_blank">Dashboard (BizLogic)</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/bigscreen" target="_blank">BigScreen</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/networktool/wicket" target="_blank">Network Budget Tool</a></td>
+    </tr>
+</table>
+
+<h3>Other Url's</h3>
+<table>
+    <tr>
+        <th style="width: 500px">Environment</th>
+        <th style="width: 800px">URL</th>
+    </tr>
+    <tr>
+        <td class="noborder">Production</td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/dapadmin/wicket//bulkaccounts.jsf">Bulk Accounts</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/dapadmin/wicket//bulkpackages.jsf" target="_blank">Bulk Packages</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/dapadmin/wicket/networkcampaignprioritization" target="_blank">Network Campaign Prioritization</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/dapadmin/wicket/dealerBranding" target="_blank">Dealer Branding</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/dap/stepStats.jsf" target="_blank">Step Stats UI</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/dapadmin/dashboard/queues/channelqueue.html" target="_blank">Posting Queue UI</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/dapadmin/wicket/dealersandgroups" target="_blank">Dealer Group</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.cobaltgroup.com/dapadmin/wicket/packagecreation" target="_blank">Package Creation</a></td>
+    </tr>
+
+
+</table>
+
+<h3>Individual Node Url's</h3>
+<table>
+    <tr>
+        <th style="width: 500px">Application</th>
+        <th style="width: 800px">URL</th>
+    </tr>
+    <tr>
+        <td class="noborder">Dot Net UI</td>
+        <td class="noborder">
+            <a href="http://tuksemapp01.tuk.cobaltgroup.com:80/" target="_blank">Node One</a>
+            <a href="http://tuksemapp02.tuk.cobaltgroup.com:80/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder">Dap Admin</td>
+        <td class="noborder">
+            <a href="http://cobpsem003.tuk.cobaltgroup.com:9080/dapadmin/" target="_blank">Node One</a>
+            <a href="http://cobpsem004.tuk.cobaltgroup.com:9080/dapadmin/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder">BigScreen</td>
+        <td class="noborder">
+            <a href="http://cobpsem004.tuk.cobaltgroup.com:10080/bigscreen/" target="_blank">Node One</a>
+            <a href="http://cobpsem003.tuk.cobaltgroup.com:10080/bigscreen/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder">Dashboard (BizLogic)</td>
+        <td class="noborder">
+            <a href="http://cobpsem003.tuk.cobaltgroup.com:8080/dap/" target="_blank">Node One</a>
+            <a href="http://cobpsem004.tuk.cobaltgroup.com:8080/dap/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder">Network Budget Tool</td>
+        <td class="noborder">
+            <a href="http://cobpsem003.tuk.cobaltgroup.com:12080/networktool/wicket/" target="_blank">Node One</a>
+            <a href="http://cobpsem004.tuk.cobaltgroup.com:12080/networktool/wicket/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+</table>
+<br>
+<hr>
+
+<h2><font color=#8a2be2>Pre Production Url's</font></h2>
+
+<h3>Load Balanced Url's</h3>
+
+<table>
+    <tr>
+        <th style="width: 500px">Application</th>
+        <th style="width: 800px">URL</th>
+    </tr>
+    <tr>
+        <td class="topborder">Dot Net</td>
+        <td class="topborder">
+            <a href="https://dap.qa-1.cobalt.com/dealers/SemQuery.aspx" target="_blank">QA-1</a>
+            <a href="https://dap.qa-2.cobalt.com/dealers/SemQuery.aspx" target="_blank">QA-2</a>
+            <a href="https://dap.dev-2.cobalt.com/dealers/SemQuery.aspx" target="_blank">DEV-2</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="topborder">DAP Admin</td>
+        <td class="topborder">
+            <a href="https://dap2.qa-1.cobalt.com/dapadmin" target="_blank">QA-1</a>
+            <a href="https://dap2.qa-2.cobalt.com/dapadmin" target="_blank">QA-2</a>
+            <a href="https://dap2.dev-2.cobalt.com/dapadmin" target="_blank">DEV-2</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="topborder">Dashboard (BizLogic)</td>
+        <td class="topborder">
+            <a href="https://dap2.qa-1.cobalt.com/dap" target="_blank">QA-1</a>
+            <a href="https://dap2.qa-2.cobalt.com/dap" target="_blank">QA-2</a>
+            <a href="https://dap2.dev-2.cobalt.com/dap" target="_blank">DEV-2</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="topborder">BigScreen</td>
+        <td class="topborder">
+            <a href="https://dap2.qa-1.cobalt.com/bigscreen" target="_blank">QA-1</a>
+            <a href="https://dap2.qa-2.cobalt.com/bigscreen" target="_blank">QA-2</a>
+            <a href="https://dap2.dev-2.cobalt.com/bigscreen" target="_blank">DEV-2</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="topborder">Network Budget Tool</td>
+        <td class="topborder">
+            <a href="https://dap2.qa-1.cobalt.com/networktool/wicket" target="_blank">QA-1</a>
+            <a href="https://dap2.qa-2.cobalt.com/networktool/wicket" target="_blank">QA-2</a>
+            <a href="https://dap2.dev-2.cobalt.com/networktool/wicket" target="_blank">DEV-2</a>
+        </td>
+    </tr>
+</table>
+
+</b>
+<h3>Other Url's</h3>
+<table>
+    <tr>
+        <th style="width: 500px">Application</th>
+        <th style="width: 800px">URL</th>
+    </tr>
+    <tr>
+        <td class="topborder">QA-1</td>
+        <td class="topborder"><a href="https://dap2.qa-1.cobalt.com/dapadmin/wicket//bulkaccounts.jsf" target="_blank">Bulk Accounts</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-1.cobalt.com/dapadmin/wicket//bulkpackages.jsf" target="_blank">Bulk Packages</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-1.cobalt.com/dapadmin/wicket/networkcampaignprioritization" target="_blank">Network Campaign Prioritization</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href=https://dap2.qa-1.cobalt.com/"dapadmin/wicket/dealerBranding" target="_blank">Dealer Branding</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-1.cobalt.com/hdap/stepStats.jsf" target="_blank">Step Stats UI</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-1.cobalt.com/dapadmin/dashboard/queues/channelqueue.html" target="_blank">Posting Queue UI</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-1.cobalt.com/dapadmin/wicket/dealersandgroups" target="_blank">Dealer Group</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-1.cobalt.com/dapadmin/wicket/packagecreation" target="_blank">Package Creation</a></td>
+    </tr>
+
+
+    <tr>
+        <td class="topborder">QA-2</td>
+        <td class="topborder"><a href="https://dap2.qa-2.cobalt.com/dapadmin/wicket//bulkaccounts.jsf" target="_blank">Bulk Accounts</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-2.cobalt.com/dapadmin/wicket//bulkpackages.jsf" target="_blank">Bulk Packages</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-2.cobalt.com/dapadmin/wicket/networkcampaignprioritization" target="_blank">Network Campaign Prioritization</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href=https://dap2.qa-2.cobalt.com/"dapadmin/wicket/dealerBranding" target="_blank">Dealer Branding</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-2.cobalt.com/hdap/stepStats.jsf" target="_blank">Step Stats UI</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-2.cobalt.com/dapadmin/dashboard/queues/channelqueue.html" target="_blank">Posting Queue UI</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-2.cobalt.com/dapadmin/wicket/dealersandgroups" target="_blank">Dealer Group</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.qa-2.cobalt.com/dapadmin/wicket/packagecreation" target="_blank">Package Creation</a></td>
+    </tr>
+
+
+    <tr>
+        <td class="topborder">DEV-2</td>
+        <td class="topborder"><a href="https://dap2.dev-2.cobalt.com/dapadmin/wicket//bulkaccounts.jsf" target="_blank">Bulk Accounts</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.dev-2.cobalt.com/dapadmin/wicket//bulkpackages.jsf" target="_blank">Bulk Packages</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.dev-2.cobalt.com/dapadmin/wicket/networkcampaignprioritization" target="_blank">Network Campaign Prioritization</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.dev-2.cobalt.com/dapadmin/wicket/dealerBranding" target="_blank">Dealer Branding</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.dev-2.cobalt.com/dap/stepStats.jsf" target="_blank">Step Stats UI</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.dev-2.cobalt.com/dapadmin/dashboard/queues/channelqueue.html" target="_blank">Posting Queue UI</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.dev-2.cobalt.com/dapadmin/wicket/dealersandgroups" target="_blank">Dealer Group</a></td>
+    </tr>
+    <tr>
+        <td class="noborder"></td>
+        <td class="noborder"><a href="https://dap2.dev-2.cobalt.com/dapadmin/wicket/packagecreation" target="_blank">Package Creation</a></td>
+    </tr>
+
+
+</table>
+<br>
+<h3>Individual Node Url's</h3>
+<table>
+    <tr>
+        <th style="width: 500px">Application</th>
+        <th style="width: 800px">URL</th>
+    </tr>
+    <tr>
+        <td class="topborder">QA-1</td>
+        <td class="topborder"><a href=""></a></td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Dot Net UI.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem001-qa1.dswh.ds.adp.com:80/" target="_blank">Node One</a>
+            <a href="http://cobnsem002-qa1.dswh.ds.adp.com:80/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Dap Admin.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem003.qa-1.dsapp.dc2.dsghost.net:9080/dapadmin/" target="_blank">Node One</a>
+            <a href="http://cobnsem004.qa-1.dsapp.dc2.dsghost.net:9080/dapadmin/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>BigScreen.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem003.qa-1.dsapp.dc2.dsghost.net:10080/bigscreen/" target="_blank">Node One</a>
+            <a href="http://cobnsem004.qa-1.dsapp.dc2.dsghost.net:10080/bigscreen/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Dashboard (BizLogic).............</td>
+        <td class="noborder">
+            <a href="http://cobnsem003.qa-1.dsapp.dc2.dsghost.net:8080/dap/" target="_blank">Node One</a>
+            <a href="http://cobnsem004.qa-1.dsapp.dc2.dsghost.net:8080/dap/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Network Budget Tool.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem003.qa-1.dsapp.dc2.dsghost.net:12080/networktool/wicket/" target="_blank">Node One</a>
+            <a href="http://cobnsem004.qa-1.dsapp.dc2.dsghost.net:12080/networktool/wicket/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="topborder">QA-2</td>
+        <td class="topborder"></td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Dot Net UI.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem001-qa2.dswh.ds.adp.com:80/" target="_blank">Node One</a>
+            <a href="http://cobnsem002-qa2.dswh.ds.adp.com:80/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Dap Admin.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem003.qa-2.dsapp.dc2.dsghost.net:9080/dapadmin/" target="_blank">Node One</a>
+            <a href="http://cobnsem004.qa-2.dsapp.dc2.dsghost.net:9080/dapadmin/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>BigScreen.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem003.qa-2.dsapp.dc2.dsghost.net:10080/bigscreen/" target="_blank">Node One</a>
+            <a href="http://cobnsem004.qa-2.dsapp.dc2.dsghost.net:10080/bigscreen/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Dashboard (BizLogic).............</td>
+        <td class="noborder">
+            <a href="http://cobnsem003.qa-2.dsapp.dc2.dsghost.net:8080/dap/" target="_blank">Node One</a>
+            <a href="http://cobnsem004.qa-2.dsapp.dc2.dsghost.net:8080/dap/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Network Budget Tool.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem003.qa-2.dsapp.dc2.dsghost.net:12080/networktool/wicket/" target="_blank">Node One</a>
+            <a href="http://cobnsem004.qa-2.dsapp.dc2.dsghost.net:12080/networktool/wicket/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="topborder">DEV-2</td>
+        <td class="topborder"></td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Dot Net UI.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem003-dev2.dswh.ds.adp.com:80/" target="_blank">Node One</a>
+            <a href="http://cobnsem003-dev2.dswh.ds.adp.com:80/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Dap Admin.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem001.dev-2.dsapp.dc2.dsghost.net:9080/dapadmin/" target="_blank">Node One</a>
+            <a href="http://cobnsem002.dev-2.dsapp.dc2.dsghost.net:9080/dapadmin/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>BigScreen.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem001.dev-2.dsapp.dc2.dsghost.net:10080/bigscreen/" target="_blank">Node One</a>
+            <a href="http://cobnsem002.dev-2.dsapp.dc2.dsghost.net:10080/bigscreen/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Dashboard (BizLogic).............</td>
+        <td class="noborder">
+            <a href="http://cobnsem001.dev-2.dsapp.dc2.dsghost.net:8080/dap/" target="_blank">Node One</a>
+            <a href="http://cobnsem002.dev-2.dsapp.dc2.dsghost.net:8080/dap/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="noborder" align=right>Network Budget Tool.............</td>
+        <td class="noborder">
+            <a href="http://cobnsem001.dev-2.dsapp.dc2.dsghost.net:12080/networktool/wicket/" target="_blank">Node One</a>
+            <a href="http://cobnsem002.dev-2.dsapp.dc2.dsghost.net:12080/networktool/wicket/" target="_blank">Node Two</a>
+        </td>
+    </tr>
+</table>
+
+
+
+<script>
+
+    var dot_net_relative_url = "/dealers/SemQuery.aspx";
+    var admin_relative_url = "/dapadmin";
+    var dashboad_relative_url = "/dap";
+    var bigscreen_relative_url = "/bigscreen";
+    var network_budget_tool_relative_url = "/networktool/wicket";
+
+    //    var bulk_account_relative_url = "/dapadmin/wicket//bulkaccounts.jsf";
+    //    var bulk_package_relative_url = "/dapadmin/wicket//bulkpackages.jsf";
+    var network_prioritization_relative_url = "/dapadmin/wicket/networkcampaignprioritization";
+    var dealer_branding_relative_url = "/dapadmin/wicket/dealerBranding";
+    var channel_queue_relative_url = "/dapadmin/dashboard/queues/channelqueue.html";
+    var dealer_groups_relative_url = "/dapadmin/wicket/dealersandgroups";
+    var package_creation_relative_url = "/dapadmin/wicket/packagecreation";
+
+    var step_stats_relative_url = "/dap/stepStats.jsf";
+
+    var relative_urls_map = {"bulk_account_relative_url" : "/dapadmin/wicket//bulkaccounts.jsf",
+        "bulk_package_relative_url" : "/dapadmin/wicket//bulkpackages.jsf"};
+
+    var admin_servers_map =  {"qa1_admin_node_one" : "cobnsem003.qa-1.dsapp.dc2.dsghost.net",
+        "qa1_admin_node_two" : "cobnsem004.qa-1.dsapp.dc2.dsghost.net"};
+
+    function get(k) {
+        return relative_urls_map[k];
+    }
+
+    var admin_relative_urls = [
+        "/dapadmin/wicket//bulkaccounts.jsf",
+        "/dapadmin/wicket//bulkpackages.jsf",
+        "/dapadmin/wicket/networkcampaignprioritization",
+        "/dapadmin/wicket/dealerBranding",
+        "/dapadmin/dashboard/queues/channelqueue.html",
+        "/dapadmin/wicket/dealersandgroups"];
+
+    var prod_dotnet_server = "dap.cobaltgroup.com";
+    var prod_admin_server = "dap2.cobaltgroup.com";
+    var prod_dotnet_node_one = "tuksemapp01.tuk.cobaltgroup.com";
+    var prod_dotnet_node_two = "tuksemapp02.tuk.cobaltgroup.com";
+    var prod_admin_node_one = "cobpsem003.tuk.cobaltgroup.com";
+    var prod_admin_node_two = "cobpsem004.tuk.cobaltgroup.com";
+
+    var qa1_dotnet_server = "dap.qa-1.cobalt.com";
+    var qa1_admin_server = "dap2.qa-1.cobalt.com";
+    var qa1_dotnet_node_one = "cobnsem001-qa1.dswh.ds.adp.com";
+    var qa1_dotnet_node_two = "cobnsem002-qa1.dswh.ds.adp.com";
+    //    var qa1_admin_node_one = "cobnsem003.qa-1.dsapp.dc2.dsghost.net";
+    //    var qa1_admin_node_two = "cobnsem004.qa-1.dsapp.dc2.dsghost.net";
+
+    var qa2_dotnet_server = "dap.qa-2.cobalt.com";
+    var qa2_admin_server = "dap2.qa-2.cobalt.com";
+    var qa2_dotnet_node_one = "cobnsem001-qa2.dswh.ds.adp.com";
+    var qa2_dotnet_node_two = "cobnsem002-qa2.dswh.ds.adp.com";
+    var qa2_admin_node_one = "cobnsem003.qa-2.dsapp.dc2.dsghost.net";
+    var qa2_admin_node_two = "cobnsem004.qa-2.dsapp.dc2.dsghost.net";
+
+    var dev2_dotnet_server = "dap.dev-2.cobalt.com";
+    var dev2_admin_server = "dap2.dev-2.cobalt.com";
+    var dev2_dotnet_node_one = "cobnsem003-dev2.dswh.ds.adp.com";
+    var dev2_dotnet_node_two = "cobnsem003-dev2.dswh.ds.adp.com";
+    var dev2_admin_node_one = "cobnsem001.dev-2.dsapp.dc2.dsghost.net";
+    var dev2_admin_node_two = "cobnsem002.dev-2.dsapp.dc2.dsghost.net";
+
+    var dotnet_port = "80";
+    var admin_port = "9080";
+    var dashboard_port = "8080";
+    var bigscreen_port = "10080";
+    var network_budget_tool_port = "12080";
+
+    var http_tag = "http://";
+    var https_tag = "https://";
+
+    window.onload = function() {
+        var qa1_dotnet_url = document.getElementById("qa1_dotnet_url");
+        qa1_dotnet_url.href = https_tag + qa1_dotnet_server + dot_net_relative_url;
+    }
+
+    window.onload = function() {
+        var qa1_admin_url = document.getElementById("qa1_admin_url");
+        qa1_admin_url.href = https_tag + qa1_admin_server + admin_relative_url;
+    }
+
+    function qa1urls() {
+        var qa1_dashboard_url = document.getElementById("qa1_dashboard_url");
+        qa1_dashboard_url.href = https_tag + qa1_admin_server + dashboad_relative_url;
+
+        var qa1_bigscreen_url = document.getElementById("qa1_bigscreen_url");
+        qa1_bigscreen_url.href = https_tag + qa1_admin_server + bigscreen_relative_url;
+
+        var qa1_network_budget_tool_url = document.getElementById("qa1_network_budget_tool_url");
+        qa1_network_budget_tool_url.href = https_tag + qa1_admin_server + network_budget_tool_relative_url;
+    }
+
+    window.onload = qa1urls;
+
+
+</script>
+</body>
+</html>

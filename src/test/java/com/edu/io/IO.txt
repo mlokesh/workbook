@@ -1,0 +1,32 @@
+
+                    Byte Based                                      Char Based
+                    Input                   Output                  Input                   Output
+                    ------------------------------------------------------------------------------------------
+1. Byte             InputStream             OutputStream            Reader                  Writer
+                                                                    InputStreamReader       OutputStreamWriter
+
+2. Arrays           ByteArrayInputStream    ByteArrayOutPutStream   CharArrayReader         CharArrayWriter
+
+3. Files            FileInputStream         FileOutPutStream        FileReader              FileWriter
+
+4. Pipes            PipedInputStream        PipedOutPutStream       PipedReader             PipedWriter
+
+5. Buffering        BufferedInputStream     BufferedOutputStream    BufferedReader          BufferedWriter
+
+6. Parsing          PushbackInputStream                             PushbackReader
+                    StreamTokenizer                                 LineNumberReader
+
+7. String                                                           StringReader            StringWriter
+
+8. Data             DataInputStream         DataOutPutStream
+
+9. Data Formatted                           PrintStream                                     PrintWriter
+
+10.Objects          ObjectInputStream       ObjectOutPutStream
+
+11.Utilities        SequenceInputStream
+
+
+Pipes in Java IO provides the ability for two threads running in the same JVM to communicate. As such pipes are a common source or destination of data.
+
+

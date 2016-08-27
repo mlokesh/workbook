@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.min.js"></script>
+    <script src="todos/todo.js"></script>
+    <style>
+        .done {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="ToDoController">
+    <form ng-submit="addToDo()">
+        <input type="text" ng-model="todoText" >
+        <button type="submit">Submit</button>
+    </form>
+    <ul>
+        <li ng-repeat="todo in todos">
+            <input type="checkbox" ng-click="markdone($index)">
+            <span ng-class ="{done : todo.done}"> {{todo.text}} </span>
+            <a href="" ng-click="remove($index)" > [x] </a>
+        </li>
+        <div>
+            <br>
+            <span >Remain: {{remaining}}</span>
+            <span>Complete: {{complete}}</span>
+        </div>
+    </ul>
+</div>
+</body>
+</html>

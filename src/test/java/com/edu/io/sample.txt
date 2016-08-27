@@ -1,0 +1,4 @@
+sample text line one
+line two
+
+line after blank line
