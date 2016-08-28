@@ -2,10 +2,12 @@ package com.edu.ds;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ListMultimap;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Multimap;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -56,4 +58,12 @@ public class Temp {
         }
     }
 
+    @Test
+    public void checkIterator() throws Exception {
+        final List<String> sample = Lists.newArrayList();
+        sample.add("test");
+
+        sample.forEach(System.out::println);
+
+    }
 }

@@ -209,7 +209,7 @@ public class Practice {
 
     @Test
     public void iterateMaps() {
-        Map<Integer, String> myMap = new HashMap<Integer, String>();
+        Map<Integer, String> myMap = new HashMap<>();
         Set<Map.Entry<Integer, String>> entrySet = myMap.entrySet();
 
         for (Map.Entry<Integer, String> entry : entrySet) {
