@@ -33,7 +33,7 @@ public class Sort {
     }
 
     private void sortBigList(int n) {
-        List<Integer> unsorted = new ArrayList<Integer>();
+        List<Integer> unsorted = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
             unsorted.add((int) (Math.random() * 1000.0));
@@ -46,14 +46,14 @@ public class Sort {
     }
 
     private List<Integer> quickSort(List<Integer> list) {
-        List<Integer> sorted = new ArrayList<Integer>();
+        List<Integer> sorted = new ArrayList<>();
 
         if (list.size() == 0) {
             return list;
         } else {
-            List<Integer> l = new ArrayList<Integer>();
+            List<Integer> l = new ArrayList<>();
             Integer m = list.get(0);
-            List<Integer> h = new ArrayList<Integer>();
+            List<Integer> h = new ArrayList<>();
 
             for (int i : list.subList(1, list.size())) {
                 if (i > m) {

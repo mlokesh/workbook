@@ -19,7 +19,7 @@ public class PrimeNumbers {
     }
 
     private List<Integer> generatePrimeNumbers(final int maxNumbers) {
-        final List<Integer> result = new ArrayList<Integer>();
+        final List<Integer> result = new ArrayList<>();
 
         for (int i = 1; i <= maxNumbers; i++) {
             boolean isPrimeNumber = true;

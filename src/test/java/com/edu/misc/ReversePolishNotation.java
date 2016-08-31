@@ -17,7 +17,7 @@ public class ReversePolishNotation {
         int result;
         String operations = "+-*/";
 
-        Stack<String> stack = new Stack<String>();
+        Stack<String> stack = new Stack<>();
 
         for (String token : tokens) {
             if (!operations.contains(token)) {

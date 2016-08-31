@@ -1,4 +1,4 @@
-package com.edu.other;
+package com.edu.misc;
 
 import org.junit.Test;
 

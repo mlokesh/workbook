@@ -34,7 +34,7 @@ public class PrimeFactors {
     }
 
     private List<Integer> primeFactorsOf(int input) {
-        ArrayList<Integer> factors = new ArrayList<Integer>();
+        ArrayList<Integer> factors = new ArrayList<>();
 
         for (int divisor = 2; input > 1; divisor++) {
             for (; input % divisor == 0; input = input/divisor) {
@@ -45,7 +45,7 @@ public class PrimeFactors {
     }
 
     private List<Integer> temp(int input) {
-        ArrayList<Integer> factors = new ArrayList<Integer>();
+        ArrayList<Integer> factors = new ArrayList<>();
         int divisor = 2;
         while (input > 1) {
             for (; input % divisor == 0; input = input/divisor) {

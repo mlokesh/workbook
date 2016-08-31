@@ -18,6 +18,5 @@ public class ExecutorServiceExample {
             int time = random.nextInt(500);
             waitTime += time;
         }
-
     }
 }

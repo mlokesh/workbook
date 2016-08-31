@@ -6,7 +6,6 @@ public class SimpleThreads {
 
         final String threadName = Thread.currentThread().getName();
         System.out.format("%s: %s%n", threadName, message);
-
     }
 
     private static class MessageLoop implements Runnable {
@@ -30,7 +29,6 @@ public class SimpleThreads {
             }
         }
     }
-
 
     public static void main(String[] args) {
         threadMessage("hello");
