@@ -225,6 +225,4 @@ public class Practice {
             thisEntry.getValue();
         }
     }
-
-
 }

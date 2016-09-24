@@ -7,9 +7,7 @@ import java.util.concurrent.Executors;
 public class ExecutorServiceExample {
 
     public static void main(String[] args) {
-
         final Random random = new Random();
-
         final ExecutorService executor = Executors.newFixedThreadPool(3);
 
         int waitTime = 600;
@@ -19,4 +17,5 @@ public class ExecutorServiceExample {
             waitTime += time;
         }
     }
+
 }

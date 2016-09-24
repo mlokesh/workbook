@@ -29,7 +29,6 @@ public class LatchSample implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -41,6 +40,6 @@ public class LatchSample implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+
 }

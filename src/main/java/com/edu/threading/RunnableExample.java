@@ -11,7 +11,6 @@ public class RunnableExample implements Runnable {
         final Thread thread = new Thread(new RunnableExample());
         thread.start();
         thread.sleep(10);
-
         thread.join();
     }
 

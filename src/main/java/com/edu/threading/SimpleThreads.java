@@ -9,7 +9,6 @@ public class SimpleThreads {
     }
 
     private static class MessageLoop implements Runnable {
-
         @Override
         public void run() {
             String importantInfo[] = {

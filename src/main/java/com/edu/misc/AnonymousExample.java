@@ -9,7 +9,6 @@ public class AnonymousExample {
     }
 
     public void sayHello() {
-
         class EnglishGreeting implements HelloWorld {
 
             String name = "world";
@@ -27,7 +26,6 @@ public class AnonymousExample {
         }
 
         class FrenchGreeting implements HelloWorld {
-
             String name = "mundo";
 
             @Override

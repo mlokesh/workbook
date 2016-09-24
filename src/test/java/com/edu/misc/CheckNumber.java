@@ -39,11 +39,8 @@ public class CheckNumber {
                 System.out.println(result);
             }
         }
-
         String aa = "onehundredonethousandsevenhundredandtwentythree1";
         Assert.assertTrue(aa.equals(result));
-
-
     }
 
 
