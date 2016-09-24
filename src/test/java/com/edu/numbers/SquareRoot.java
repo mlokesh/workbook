@@ -37,5 +37,4 @@ public class SquareRoot {
     // x.(power of n) - w = 0;
 
     // Therefore, if f(x) = x.(power of n) - w, we want to find the value of x where f(x) = 0, that's there the curve crosses x-axis.
-
 }

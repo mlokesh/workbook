@@ -11,4 +11,5 @@ public class HashTableTest {
     public void verifyHashTable() throws Exception {
         Map<Integer, String> sampleMap = new Hashtable<>();
     }
+
 }

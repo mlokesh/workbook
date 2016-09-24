@@ -17,7 +17,6 @@ public class PriorityQueueTest {
 
     @Test
     public void checkQueueTypes() throws Exception {
-
         Queue<String> queue1 = new ArrayBlockingQueue<>(2);
         Queue<String> queue2 = new ConcurrentLinkedQueue<>();
         Queue<String> queue3 = new LinkedBlockingQueue<>();
@@ -68,16 +67,16 @@ public class PriorityQueueTest {
         private int id;
         private String name;
 
-        public Customer(final int id, final String name) {
+        private Customer(final int id, final String name) {
             this.id = id;
             this.name = name;
         }
 
-        public int getId() {
+        private int getId() {
             return id;
         }
 
-        public String getName() {
+        private String getName() {
             return name;
         }
 
@@ -88,8 +87,7 @@ public class PriorityQueueTest {
 
             Customer customer = (Customer) o;
 
-            if (id != customer.id) return false;
-            return name != null ? name.equals(customer.name) : customer.name == null;
+            return id == customer.id && (name != null ? name.equals(customer.name) : customer.name == null);
         }
 
         @Override
