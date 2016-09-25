@@ -1,6 +1,8 @@
 package com.edu.misc;
 
+import org.junit.Assert;
 import org.junit.Test;
+
 import java.util.Stack;
 
 public class InfixToPostfix {
@@ -11,19 +13,46 @@ public class InfixToPostfix {
         final String input = "1+2*4/5-7+3/6";
         final String expected = "124*5/+7-36/+";
         final String result = infixToPostfix(input);
+        Assert.assertEquals(expected, result);
     }
 
     private String infixToPostfix(final String expression) {
-        String postFix = "";
-        Stack<Character> stack = new Stack<>();
+        final StringBuilder postFix = new StringBuilder();
+        final Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < expression.length(); i++) {
-            if (isOperator(expression.charAt(i))) {
+            final char c = expression.charAt(i);
+            if (isOperand(c)) {
+                postFix.append(c);
+            } else if (isOperator(c)) {
+                while (!stack.isEmpty() && !isOpeningParenthesis(stack.peek()) && hasHigherPrecedence(stack.peek(), c)) {
+                    postFix.append(stack.peek());
+                    stack.pop();
+                }
+                stack.push(c);
+            } else if (isOpeningParenthesis(c)) {
+                stack.push(c);
+            } else if (isClosingParenthesis(c)) {
+                while (!stack.isEmpty() && !isOpeningParenthesis(stack.peek())) {
+                    postFix.append(stack.peek());
+                    stack.pop();
+                }
+                stack.pop();
             }
-            System.out.println(isOperand(expression.charAt(i)));
-            hasHigherPrecedence(stack.peek(), expression.charAt(i));
         }
-        return postFix;
+        while (!stack.isEmpty()) {
+            postFix.append(stack.peek());
+            stack.pop();
+        }
+        return postFix.toString();
+    }
+
+    private boolean isOpeningParenthesis(final char c) {
+        return c == '(';
+    }
+
+    private boolean isClosingParenthesis(final char c) {
+        return c == ')';
     }
 
     private boolean isOperator(final char c) {
@@ -35,7 +64,7 @@ public class InfixToPostfix {
     }
 
     private boolean hasHigherPrecedence(final char c1, final char c2) {
-        return getOperatorWeight(c1) > getOperatorWeight(c2);
+        return getOperatorWeight(c1) == getOperatorWeight(c2) || getOperatorWeight(c1) > getOperatorWeight(c2);
     }
 
     private int getOperatorWeight(final char c) {
