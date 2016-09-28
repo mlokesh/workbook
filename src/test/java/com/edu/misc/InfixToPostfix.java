@@ -9,7 +9,6 @@ public class InfixToPostfix {
 
     @Test
     public void verify() {
-        final Stack<String> stack = new Stack<>();
         final String input = "1+2*4/5-7+3/6";
         final String expected = "124*5/+7-36/+";
         final String result = infixToPostfix(input);
