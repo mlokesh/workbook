@@ -62,6 +62,23 @@ public class LinkedList<T> {
         return temp.getData() == item;
     }
 
+    public void clear() {
+        head = null;
+    }
+
+    public void insertBefore(final T key, final T item) {
+        if (head == null) {
+            return;
+        }
+        Node<T> temp = head;
+        while (temp.next != null) {
+            if (temp.data.equals(key)) {
+
+            }
+        }
+
+    }
+
     //TODO:
     /*
     Add after an element

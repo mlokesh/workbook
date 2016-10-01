@@ -6,6 +6,17 @@ import org.junit.Test;
 public class LinkedListTest {
 
     @Test
+    public void verifyInsertingBeforeAnItem() {
+        final LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.addFirst("root");
+        final String elementOne = "elementOne";
+        final String elementTwo = "elementTwo";
+        linkedList.addLast(elementOne);
+        linkedList.addLast(elementTwo);
+        linkedList.insertBefore("elementTwo", "elementBetween");
+    }
+
+    @Test
     public void verifyLinkedList() {
         final LinkedList<String> linkedList = new LinkedList<>();
         Assert.assertTrue(linkedList.isEmpty());
