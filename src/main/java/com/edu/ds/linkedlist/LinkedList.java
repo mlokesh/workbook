@@ -70,6 +70,15 @@ public class LinkedList<T> {
         if (head == null) {
             return;
         }
+        if (head.data.equals(key)) {
+            addFirst(item);
+        }
+
+        Node<T> prev = null;
+        Node<T> cur = head;
+
+
+
         Node<T> temp = head;
         while (temp.next != null) {
             if (temp.data.equals(key)) {
